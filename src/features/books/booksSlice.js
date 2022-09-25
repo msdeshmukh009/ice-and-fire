@@ -28,7 +28,10 @@ const booksSlice = createSlice({
       state.isLoading = false;
       state.books = data;
       state.pageLinks = pageLinks;
-      state.bookIds = data.map(book => book.url.slice(-1));
+      state.bookIds = data.map(book => {
+        const splitUrl = book.url.split("/");
+        return splitUrl[splitUrl.length - 1];
+      });
     },
 
     [getBooks.rejected]: (state, { payload }) => {
