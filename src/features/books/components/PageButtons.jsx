@@ -1,9 +1,4 @@
-import React from "react";
-import { useSelector } from "react-redux";
-
-const PageButtons = ({ setUrl }) => {
-  const { pageLinks } = useSelector(state => state.booksData);
-
+const PageButtons = ({ setUrl, pageLinks }) => {
   const buttonText = rel => {
     return rel
       ?.split("=")[1]
